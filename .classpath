@@ -4,8 +4,9 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/lucene-analyzers-3.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/lucene-core-3.0.1.jar" sourcepath="/home/qianjun/.m2/repository/org/apache/lucene/lucene-core/3.0.1/lucene-core-3.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-core-3.0.1.jar" sourcepath="/home/qianjun/视频/lucene/lucene-3.0.1-src.zip"/>
 	<classpathentry kind="lib" path="lib/lucene-highlighter-3.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-memory-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/IKAnalyzer3.2.0Stable.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
