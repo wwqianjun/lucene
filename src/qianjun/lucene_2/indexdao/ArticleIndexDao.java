@@ -20,6 +20,7 @@ import qianjun.lucene.helloworld.domain.Article;
 import qianjun.lucene_2.domain.QueryResult;
 import qianjun.lucene_2.utils.ArticleDocumentUtil;
 import qianjun.lucene_2.utils.Configuration;
+import qianjun.lucene_2.utils.LuceneUtil;
 
 
 /**
@@ -40,21 +41,20 @@ public class ArticleIndexDao {
 		Document doc = ArticleDocumentUtil.articleToDocument(article);
 		
 		//2，将Document添加到索引库
-		IndexWriter indexWriter = null;
 		try {
-			indexWriter = new IndexWriter(Configuration.getDirectory(), Configuration.getAnalyzer(), MaxFieldLength.LIMITED);
-			indexWriter.addDocument(doc);
+			
+			LuceneUtil.getIndexWriter().addDocument(doc);
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
-		}finally{
+		}/*finally{
 			try {
 				indexWriter.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
-		}
+		}*/
 		
 	}
 
@@ -66,14 +66,12 @@ public class ArticleIndexDao {
 	 * @param article （如果article的ID索引目录中没有，效果add方法一样） 
 	 */
 	public void update(Article article){
-		IndexWriter indexWriter = null;
 		try {
 			Term term = new Term("id",article.getId());
 			Document doc = ArticleDocumentUtil.articleToDocument(article);
 			
-			indexWriter = new IndexWriter(Configuration.getDirectory(), Configuration.getAnalyzer(), MaxFieldLength.LIMITED);
 			//更新就是先删除，再创建
-			indexWriter.updateDocument(term, doc); 
+			LuceneUtil.getIndexWriter().updateDocument(term, doc); 
 			
 			//也可以写成这样
 //			indexWriter.deleteDocuments(term);
@@ -81,14 +79,14 @@ public class ArticleIndexDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
-		} finally{
+		} /*finally{
 			try {
 				indexWriter.close();
 			}  catch (IOException e) {
 				e.printStackTrace();
 				throw new RuntimeException();
 			}
-		}
+		}*/
 	}
 	
 	/**
@@ -99,23 +97,21 @@ public class ArticleIndexDao {
 	 * @param articleId（索引目录中没有articleId，不会报错，和有一样的效果）
 	 */
 	public void delete(String articleId){
-		IndexWriter indexWriter = null;
 		try {
 			Term term = new Term("id", articleId);
 			
-			indexWriter = new IndexWriter(Configuration.getDirectory(), Configuration.getAnalyzer(), MaxFieldLength.LIMITED);
-			indexWriter.deleteDocuments(term);
+			LuceneUtil.getIndexWriter().deleteDocuments(term);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
-		}finally{
+		} /*finally{
 			try {
 				indexWriter.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
-		}
+		}*/
 	}
 	
 	/**

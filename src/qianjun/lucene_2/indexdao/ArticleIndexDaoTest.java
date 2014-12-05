@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import qianjun.lucene.helloworld.domain.Article;
 import qianjun.lucene_2.domain.QueryResult;
+import qianjun.lucene_2.utils.LuceneUtil;
 
 public class ArticleIndexDaoTest {
 
@@ -21,6 +22,7 @@ public class ArticleIndexDaoTest {
 	
 	@After
 	public void shuoDown(){
+		LuceneUtil.close();
 		System.out.println("----------------------------------->End Test-----------------------------------------");
 	}
 	
@@ -55,9 +57,10 @@ public class ArticleIndexDaoTest {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testSearcher(){
-		String queryString ="哈哈";
+//		String queryString ="哈哈";
+		String queryString = "安徽省";
 		int firstResult = 0;
-		int maxResult = 20;
+		int maxResult = 21;
 		QueryResult<Article> queryResult = articleIndexDao.searcher(queryString, firstResult, maxResult);
 		
 		//显示结果
