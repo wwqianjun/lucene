@@ -58,7 +58,8 @@ public class ArticleIndexDaoTest {
 	@Test
 	public void testSearcher(){
 //		String queryString ="哈哈";
-		String queryString = "安徽省";
+		String queryString = "oyxm";
+//		String queryString = "Oyxm";
 		int firstResult = 0;
 		int maxResult = 21;
 		QueryResult<Article> queryResult = articleIndexDao.searcher(queryString, firstResult, maxResult);
