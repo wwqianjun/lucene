@@ -58,7 +58,7 @@ public class ArticleIndexDaoTest {
 	@Test
 	public void testSearcher(){
 //		String queryString ="哈哈";
-		String queryString = "oyxm";
+		String queryString = "钱俊";
 //		String queryString = "Oyxm";
 		int firstResult = 0;
 		int maxResult = 21;

@@ -1,4 +1,4 @@
-package qianjun.lucene_2.hightligter;
+package qianjun.lucene_2.query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +32,8 @@ public class HightLighterTest {
 	@Test
 	public void testHightLighter() throws Exception{
 		//1,搜索条件是什么
-//		String queryString = "安徽";
-		String queryString = "20";
+		String queryString = "钱俊";
+//		String queryString = "20";
 
 		
 		//a,把搜索字符串转化为Query对象

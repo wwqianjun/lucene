@@ -21,3 +21,4 @@ qianjun.lucene_2.indexDao + qianjun.lucene_2.domain + qianjun.lucene_2.utils
 	qianjun.lucene_2.hightlighter
 git修炼显示问题
 git add this
+只是增加
